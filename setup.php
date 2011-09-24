@@ -16,6 +16,9 @@ try {
 }
 
 $pdo = null;
+
+return json_encode($msg_array);
+
 //$conn = sqlite_open(DB, 0666, $error) or die($error);
 ////テーブルの作成
 //sqlite_query($conn, 'CREATE TABLE ' . TABLE . ' (msg_id INTEGER PRIMARY KEY, name TEXT, message text, time text)', SQLITE_ASSOC, $error) or die($error);
