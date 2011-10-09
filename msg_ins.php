@@ -3,7 +3,8 @@ require_once('common.inc');
 //mb_internal_encoding("UTF-8");
 
 //メッセージが空でないかの確認
-if(!isset($_POST['message']) || $_POST['message'] === ""){
+if(!isset($_POST['message']) || preg_match('/^\s+$/', $_POST['message']) === 1){ 
+//if(!isset($_POST['message']) || $_POST['message'] === ""){
     header('HTTP/1.0 400 Bad Request');
     die('error');
 }

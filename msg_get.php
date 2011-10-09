@@ -17,8 +17,8 @@ try {
     $pdo = new PDO(CONNECT);
     //エラーがあったらcatchに飛ぶ設定
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $pdo->prepare("SELECT * FROM " . TABLE . " Where msg_id > :last_id limit " . MAXMSG);
-    //$stmt = $pdo->prepare("SELECT * FROM " . TABLE . " Where msg_id > :last_id ORDER BY msg_id DESC limit " . MAXMSG);
+    //$stmt = $pdo->prepare("SELECT * FROM " . TABLE . " Where msg_id > :last_id limit " . MAXMSG);
+    $stmt = $pdo->prepare("SELECT * FROM " . TABLE . " Where msg_id > :last_id ORDER BY msg_id DESC limit " . MAXMSG);
     $stmt->bindValue(':last_id', $last_id, PDO::PARAM_INT);
     $stmt->execute();
     $msg_array = $stmt->fetchAll(PDO::FETCH_ASSOC);

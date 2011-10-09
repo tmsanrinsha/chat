@@ -1,8 +1,3 @@
-<html>
-<head>
-<title>SETUP</title>
-</head>
-<body>
 <?php
 require_once 'common.inc';
 
@@ -13,11 +8,11 @@ try {
     $pdo->query("CREATE TABLE " . TABLE . " (msg_id INTEGER PRIMARY KEY, name TEXT, message TEXT, time TEXT)");
 } catch (PDOException $e){
     var_dump($e->getMessage());
+    die;
 }
 
 $pdo = null;
-
-return json_encode($msg_array);
+//return json_encode($msg_array);
 
 //$conn = sqlite_open(DB, 0666, $error) or die($error);
 ////テーブルの作成
@@ -27,7 +22,4 @@ return json_encode($msg_array);
 //sqlite_close($conn);
 
 echo '初期化が終わりました';
-
 ?>
-</body>
-</html>
